@@ -1,35 +1,12 @@
 (() => {
     // Try to interact with the object and get it to interact back
     const seeMoreButtons = document.querySelectorAll('.see-more'),
-        popOver = document.querySelector('.popover');
+          popOver = document.querySelector('.popover');
 
-    const waypoint = new Waypoint({
-        // What element is the waypoint looking at?
-        // The handler will fire when it scrolls into view
-        element: document.getElementById('beer2'),
-        // What should we do when we hit the waypoint? This is up to you
-        // You can trigger animation, do an AJAX call, etc.
-        handler: function(direction) {
-          console.log('Scrolled to waypoint!')
-          this.element.innerHTML += `
-          <p>Added this with Waypoint! We are scrolling ${direction}</p>`
-        }
-      })
-
-      // New waypoint
-    const waypoint2 = new Waypoint({
-        element: document.getElementById('beer3'),
-        handler: function(direction) {
-          console.log('Scrolled to waypoint!')
-        },
-
-        offset: 100
-      })
-
-    function buildPopover(beerdata, el) {
-        popOver.querySelector(".ipa-rating").textContent = `IPA Rating: ${beerdata.IpaRating}`;
-        popOver.querySelector(".ratings").textContent = `Average Rating: ${beerdata.ratings}`;
-        popOver.querySelector(".beer-description").textContent = beerdata.description;
+    function buildPopover(db_sea_turtles, el) {
+        popOver.querySelector(".ipa-rating").textContent = `Scientific Name: ${db_sea_turtles.scientificName}`;
+        popOver.querySelector(".ratings").textContent = `Conservation Status: ${db_sea_turtles.conservationStatus}`;
+        popOver.querySelector(".beer-description").textContent = `Weight: ${db_sea_turtles.weight}`;
 
         // Show the popover
         popOver.classList.add('show-popover');
